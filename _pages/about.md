@@ -22,13 +22,20 @@ Welcome to the **Nuclear Physics Laboratory** at Yonsei University. Strong inter
 
 We are looking for new members! If you are interested, please <a href="mailto:contact@yonsei.ac.kr">contact us</a>.
 
-### Research Projects
+### <a href="{{ '/projects/' | relative_url }}" style="color: inherit; text-decoration: none;">Research Projects &rsaquo;</a>
 
 <style>
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
   .research-card {
     background-color: #f0f9ff;
     border-radius: 12px;
-    overflow: hidden; /* For rounded image corners */
+    overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     display: flex;
@@ -52,11 +59,38 @@ We are looking for new members! If you are interested, please <a href="mailto:co
   .research-card-content {
     padding: 2rem;
   }
+
+  /* Responsive Swipe for Mobile */
+  @media (max-width: 768px) {
+    .research-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding: 0.5rem 1rem 1.5rem 1rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+    .research-grid::-webkit-scrollbar {
+      height: 4px;
+    }
+    .research-grid::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 10px;
+    }
+    .research-card {
+      min-width: 85%;
+      scroll-snap-align: center;
+    }
+  }
 </style>
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem; margin-bottom: 2rem;">
+<div class="research-grid">
   <!-- Theme 1 -->
-  <div class="research-card">
+  <a href="{{ '/projects/' | relative_url }}" class="research-card">
     <img src="{{ '/assets/img/carousel/carousel_01.png' | relative_url }}" alt="RHIC Research">
     <div class="research-card-content">
       <div style="color: #003876; margin-bottom: 0.6rem;">
@@ -65,9 +99,9 @@ We are looking for new members! If you are interested, please <a href="mailto:co
       <strong style="color: #003876; font-size: 1.25rem; display: block; margin-bottom: 1.2rem; font-family: 'Merriweather', serif;">PHENIX & sPHENIX at RHIC</strong>
       <span style="font-size: 1rem; color: #334155; display: block; line-height: 1.6;">Exploring quark-gluon plasma and nuclear matter properties in relativistic heavy-ion collisions at Brookhaven National Laboratory.</span>
     </div>
-  </div>
+  </a>
   <!-- Theme 2 -->
-  <div class="research-card">
+  <a href="{{ '/projects/' | relative_url }}" class="research-card">
     <img src="{{ '/assets/img/carousel/carousel_02.png' | relative_url }}" alt="LHC Research">
     <div class="research-card-content">
       <div style="color: #003876; margin-bottom: 0.6rem;">
@@ -76,9 +110,9 @@ We are looking for new members! If you are interested, please <a href="mailto:co
       <strong style="color: #003876; font-size: 1.25rem; display: block; margin-bottom: 1.2rem; font-family: 'Merriweather', serif;">ALICE at LHC</strong>
       <span style="font-size: 1rem; color: #334155; display: block; line-height: 1.6;">Studying the properties of strongly interacting matter at the highest-ever energy densities using the ALICE detector at CERN.</span>
     </div>
-  </div>
+  </a>
   <!-- Theme 3 -->
-  <div class="research-card">
+  <a href="{{ '/projects/' | relative_url }}" class="research-card">
     <img src="{{ '/assets/img/carousel/carousel_12.png' | relative_url }}" alt="RAON Research">
     <div class="research-card-content">
       <div style="color: #003876; margin-bottom: 0.6rem;">
@@ -87,9 +121,9 @@ We are looking for new members! If you are interested, please <a href="mailto:co
       <strong style="color: #003876; font-size: 1.25rem; display: block; margin-bottom: 1.2rem; font-family: 'Merriweather', serif;">LAMPS at RAON</strong>
       <span style="font-size: 1rem; color: #334155; display: block; line-height: 1.6;">Investigating nuclear matter at extreme neutron-rich conditions using the rare isotope accelerator complex in Korea.</span>
     </div>
-  </div>
+  </a>
   <!-- Theme 4 -->
-  <div class="research-card">
+  <a href="{{ '/projects/' | relative_url }}" class="research-card">
     <img src="{{ '/assets/img/carousel/carousel_06.png' | relative_url }}" alt="EIC Research">
     <div class="research-card-content">
       <div style="color: #003876; margin-bottom: 0.6rem;">
@@ -98,63 +132,22 @@ We are looking for new members! If you are interested, please <a href="mailto:co
       <strong style="color: #003876; font-size: 1.25rem; display: block; margin-bottom: 1.2rem; font-family: 'Merriweather', serif;">ePIC at EIC</strong>
       <span style="font-size: 1rem; color: #334155; display: block; line-height: 1.6;">Probing the 3D structure of protons and nuclei through electron-ion collisions at the future Electron Ion Collider at BNL.</span>
     </div>
-  </div>
+  </a>
 </div>
 
 ---
 
-### Lab Gallery
+### <a href="{{ '/gallery/' | relative_url }}" style="color: inherit; text-decoration: none;">Lab Gallery &rsaquo;</a>
 
-<div class="lab-carousel-wrap" style="position:relative; margin: 2rem 0; overflow:hidden; border-radius:8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-  <div class="lab-carousel-track" id="labCarousel" style="display:flex; transition: transform 0.5s ease;">
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_01.png' | relative_url }}" alt="Lab photo 1"  loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_02.png' | relative_url }}" alt="Lab photo 2"  loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_03.png' | relative_url }}" alt="Lab photo 3"  loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_04.png' | relative_url }}" alt="Lab photo 4"  loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_05.png' | relative_url }}" alt="Lab photo 5"  loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_06.png' | relative_url }}" alt="Lab photo 6"  loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_07.png' | relative_url }}" alt="Lab photo 7"  loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_08.png' | relative_url }}" alt="Lab photo 8"  loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_09.png' | relative_url }}" alt="Lab photo 9"  loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_10.png' | relative_url }}" alt="Lab photo 10" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_11.png' | relative_url }}" alt="Lab photo 11" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_12.png' | relative_url }}" alt="Lab photo 12" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_13.png' | relative_url }}" alt="Lab photo 13" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-    <div style="min-width:100%; height:420px; overflow:hidden;"><img src="{{ '/assets/img/carousel/carousel_14.png' | relative_url }}" alt="Lab photo 14" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-  </div>
-  <button onclick="labCarouselMove(-1)" aria-label="Previous" style="position:absolute;top:50%;left:12px;transform:translateY(-50%);background:rgba(0,0,0,0.45);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:1.4rem;cursor:pointer;z-index:10;">&#8249;</button>
-  <button onclick="labCarouselMove(1)"  aria-label="Next"     style="position:absolute;top:50%;right:12px;transform:translateY(-50%);background:rgba(0,0,0,0.45);color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:1.4rem;cursor:pointer;z-index:10;">&#8250;</button>
-  <div id="labCarouselDots" style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;"></div>
+<div class="gallery-preview" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 1.5rem 0;">
+  {% for i in (1..6) %}
+    {% capture num %}{% if i < 10 %}0{{ i }}{% else %}{{ i }}{% endif %}{% endcapture %}
+    <a href="{{ '/gallery/' | relative_url }}" style="display: block; border-radius: 8px; overflow: hidden; height: 180px;">
+      <img src="{{ '/assets/img/carousel/carousel_' | append: num | append: '.png' | relative_url }}" alt="Lab photo preview" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    </a>
+  {% endfor %}
 </div>
 
-<script>
-(function(){
-  var track = document.getElementById('labCarousel');
-  var dotsWrap = document.getElementById('labCarouselDots');
-  var total = track ? track.children.length : 0;
-  var current = 0, timer;
-  function buildDots() {
-    for (var i = 0; i < total; i++) {
-      var d = document.createElement('button');
-      d.style.cssText = 'width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;';
-      d.setAttribute('data-idx', i);
-      d.addEventListener('click', function(){ goTo(parseInt(this.getAttribute('data-idx'))); resetTimer(); });
-      dotsWrap.appendChild(d);
-    }
-    updateDots();
-  }
-  function updateDots() {
-    Array.from(dotsWrap.children).forEach(function(d, i){
-      d.style.background = (i === current) ? '#fff' : 'rgba(255,255,255,0.45)';
-    });
-  }
-  function goTo(n) {
-    current = (n + total) % total;
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
-    updateDots();
-  }
-  window.labCarouselMove = function(dir){ goTo(current + dir); resetTimer(); };
-  function resetTimer(){ clearInterval(timer); timer = setInterval(function(){ goTo(current + 1); }, 4500); }
-  if (track && total > 0){ buildDots(); resetTimer(); }
-})();
-</script>
+<div style="text-align: right; margin-bottom: 3rem;">
+  <a href="{{ '/gallery/' | relative_url }}" class="btn btn-sm btn-outline-primary" style="border-radius: 20px; padding: 0.5rem 1.5rem;">See All Lab Photos &rarr;</a>
+</div>
