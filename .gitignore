@@ -13,3 +13,6 @@ assets/rendercv/rendercv_output/*.typ
 Gemfile.lock
 node_modules/
 vendor
+.npl_venv/
+data.json
+scrape_npl.py

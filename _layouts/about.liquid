@@ -1,80 +1,122 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
+<style>
+  /* Global Academic Refinements */
+  .lab-intro {
+    font-family: 'Inter', sans-serif;
+    color: var(--global-text-color);
+  }
+  .intro-content, article p, article li {
+    font-weight: 500; /* Improved visual density */
+    line-height: 1.8;
+  }
+  .section-block {
+    margin-top: 80px !important;
+    margin-bottom: 80px !important;
+  }
+  
+  /* Hero Header Style - Light Gray Background */
+  .hero-section {
+    background-color: #f8fafc;
+    margin: -2rem -15px 60px -15px; /* Increased bottom margin to 60px */
+    padding: 60px 2rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+  .hero-container {
+    max-width: 930px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Reduced gap for unified brand look */
+  }
+  .hero-logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    /* Remove dark filters, use multiply to make white background transparent */
+    mix-blend-mode: multiply; 
+  }
+  .hero-titles h1 {
+    color: var(--global-theme-color);
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.1;
+  }
+  .hero-titles h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--global-text-color-light);
+    margin: 0;
+  }
+
+  /* News List with Dividers */
+  .news-container table tr {
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+  .news-container table tr:last-child {
+    border-bottom: none;
+  }
+  .news-container table td {
+    padding: 1.2rem 0 !important;
+  }
+  
+  /* Dark Mode Overrides */
+  html[data-theme="dark"] .hero-section {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+</style>
+
+<div class="lab-intro">
+  <div class="hero-section">
+    <div class="hero-container">
+      {% assign symbol_path = '/assets/img/yonsei_symbol.jpg' %}
+      <img src="{{ symbol_path | relative_url }}" alt="Yonsei Logo" class="hero-logo">
+      <div class="hero-titles">
+        <h1>{{ site.lab_name | default: site.title }}</h1>
+        <h2>{{ page.subtitle }}</h2>
+      </div>
+    </div>
+  </div>
 
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
-
-    <div class="clearfix">{{ content }}</div>
+    <!-- Main Intro Content -->
+    <div class="intro-content" style="font-size: 1.15rem; margin-bottom: 3.5rem;">
+      {{ content }}
+    </div>
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
+      <div class="section-block">
+        <h3 style="color: var(--global-theme-color); font-family: 'Merriweather', serif; font-size: 1.6rem; border-bottom: 2px solid var(--global-theme-color); padding-bottom: 0.5rem; margin-bottom: 2rem; display: inline-block;">
+          <a href="{{ '/news/' | relative_url }}" style="color: inherit; text-decoration: none;">Latest News</a>
+        </h3>
+        <div class="news-container">
+          {% include news.liquid limit=true %}
+        </div>
+      </div>
     {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
+      <div class="section-block">
+        <h3 style="color: var(--global-theme-color); font-family: 'Merriweather', serif; font-size: 1.6rem; border-bottom: 2px solid var(--global-theme-color); padding-bottom: 0.5rem; margin-bottom: 2rem; display: inline-block;">
+          <a href="{{ '/publications/' | relative_url }}" style="color: inherit; text-decoration: none;">Selected Publications</a>
+        </h3>
+        <div class="papers-container">
+          {% include selected_papers.liquid %}
+        </div>
+      </div>
     {% endif %}
 
     <!-- Social -->
     {% if page.social %}
-      <div class="social">
+      <div class="social" style="text-align: center; border-top: 1px solid var(--global-divider-color); margin-top: 5rem; padding-top: 3rem;">
         <div class="contact-icons">{% social_links %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
+        <div class="contact-note" style="margin-top: 1rem; color: var(--global-text-color-light);">{{ site.contact_note }}</div>
       </div>
-    {% endif %}
-
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
     {% endif %}
   </article>
 </div>

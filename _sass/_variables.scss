@@ -5,12 +5,20 @@
 
 @use "sass:color";
 
+// Yonsei Official Brand Colors
+$yonsei-blue-281: #00205B;     // PANTONE 281C
+$yonsei-blue-660: #407EC9;     // PANTONE 660C
+$yonsei-gray-432: #333F48;     // PANTONE 432C
+$yonsei-gray-7543: #98A4AE;    // PANTONE 7543C
+$yonsei-gold-123: #FFC72C;     // PANTONE 123C
+
 // Colors
 $red-color: #ff3636 !default;
 $red-color-dark: #b71c1c !default;
 $orange-color: #f29105 !default;
-$blue-color: #0076df !default;
-$blue-color-dark: #00369f !default;
+$blue-color: $yonsei-blue-281 !default;
+$blue-color-dark: #001338 !default;
+$blue-color-light: $yonsei-blue-660 !default;
 $cyan-color: #2698ba !default;
 $light-cyan-color: color.adjust($cyan-color, $lightness: 25%);
 $green-color: #00ab37 !default;
