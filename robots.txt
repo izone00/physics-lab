@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://izone00.github.io/physics-lab/sitemap.xml
