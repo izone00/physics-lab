@@ -7,7 +7,9 @@ layout: default
     font-family: 'Inter', sans-serif;
     color: var(--global-text-color);
   }
-  .intro-content, article p, article li {
+  .intro-content,
+  article p,
+  article li {
     font-weight: 500; /* Improved visual density */
     line-height: 1.8;
   }
@@ -15,7 +17,7 @@ layout: default
     margin-top: 80px !important;
     margin-bottom: 80px !important;
   }
-  
+
   /* Hero Header Style - Light Gray Background */
   .hero-section {
     background-color: #f8fafc;
@@ -35,7 +37,7 @@ layout: default
     width: auto;
     object-fit: contain;
     /* Remove dark filters, use multiply to make white background transparent */
-    mix-blend-mode: multiply; 
+    mix-blend-mode: multiply;
   }
   .hero-titles h1 {
     color: var(--global-theme-color);
@@ -62,9 +64,9 @@ layout: default
   .news-container table td {
     padding: 1.2rem 0 !important;
   }
-  
+
   /* Dark Mode Overrides */
-  html[data-theme="dark"] .hero-section {
+  html[data-theme='dark'] .hero-section {
     background-color: rgba(255, 255, 255, 0.03);
   }
 </style>
