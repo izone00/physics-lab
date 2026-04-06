@@ -11,6 +11,7 @@ related_publications: true
 This project focuses on the experimental study of exotic nuclei using the **RAON (Rare Isotope Accelerator complex for ON-line plants)** facility. Our goal is to understand the evolution of shell structure and the limits of nuclear existence.
 
 ### Key Objectives
+
 - Measurement of nuclear masses and half-lives of neutron-rich isotopes.
 - Study of nuclear astrophysical processes (r-process) in the laboratory.
 - Development of new detection systems for high-intensity beams.

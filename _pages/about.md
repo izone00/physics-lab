@@ -27,11 +27,12 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Welcome to the Nuclear Physics Laboratory led by **Professor Minjae Kim**. 
+Welcome to the Nuclear Physics Laboratory led by **Professor Minjae Kim**.
 
 Our research focuses on the fundamental properties of atomic nuclei and their applications in energy and medicine. We utilize state-of-the-art particle accelerators and detection systems to investigate nuclear reactions, decay modes, and the synthesis of heavy elements.
 
 ### Research Interests
+
 - **Experimental Nuclear Physics**: Studying nuclear structure and dynamics using high-precision spectroscopy.
 - **Radiation Technology**: Developing advanced radiation detection systems for medical imaging and industrial safety.
 - **Nuclear Astrophysics**: Investigating the nucleosynthesis processes that occur in stars and supernovae.
