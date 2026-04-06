@@ -44,6 +44,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/physics-lab/news/";
           },
+        },{id: "nav-gallery",
+          title: "Gallery",
+          description: "Visual highlights from our laboratory and experiments.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/physics-lab/gallery/";
+          },
         },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
