@@ -1,5 +1,16 @@
 <div class="news">
   {% if site.news != blank %}
+    <!-- Simple Search Bar -->
+    <div class="search-container" style="margin-bottom: 2rem;">
+      <input
+        type="text"
+        id="newsSearchInput"
+        onkeyup="filterNews()"
+        placeholder="Search news titles or content..."
+        style="width: 100%; padding: 12px 15px; border: 1px solid var(--global-divider-color); border-radius: 8px; font-size: 1rem; background-color: var(--global-bg-color); color: var(--global-text-color); outline: none; transition: border-color 0.2s;"
+      >
+    </div>
+
     {% assign news_size = site.news | size %}
     <div
       class="table-responsive"
@@ -7,7 +18,7 @@
         style="max-height: 60vw"
       {% endif %}
     >
-      <table class="table table-sm table-borderless">
+      <table id="news-table" class="table table-sm table-borderless">
         {% assign news = site.news | reverse %}
         {% if include.limit and page.announcements.limit %}
           {% assign news_limit = page.announcements.limit %}
@@ -15,9 +26,9 @@
           {% assign news_limit = news_size %}
         {% endif %}
         {% for item in news limit: news_limit %}
-          <tr>
+          <tr class="news-item">
             <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
-            <td>
+            <td class="news-content">
               {% if item.inline %}
                 {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
               {% else %}
@@ -28,6 +39,37 @@
         {% endfor %}
       </table>
     </div>
+
+    <!-- Live Filter Script -->
+    <script>
+      function filterNews() {
+        var input = document.getElementById('newsSearchInput');
+        var filter = input.value.toLowerCase();
+        var table = document.getElementById('news-table');
+        var tr = table.getElementsByClassName('news-item');
+
+        for (var i = 0; i < tr.length; i++) {
+          var td = tr[i].getElementsByClassName('news-content')[0];
+          if (td) {
+            var textValue = td.textContent || td.innerText;
+            if (textValue.toLowerCase().indexOf(filter) > -1) {
+              tr[i].style.display = '';
+            } else {
+              tr[i].style.display = 'none';
+            }
+          }
+        }
+      }
+
+      // Add focus effect via JS for better integration with theme variables
+      document.getElementById('newsSearchInput').addEventListener('focus', function () {
+        this.style.borderColor = 'var(--global-theme-color)';
+      });
+      document.getElementById('newsSearchInput').addEventListener('blur', function () {
+        this.style.borderColor = 'var(--global-divider-color)';
+      });
+    </script>
+
   {% else %}
     <p>No news so far...</p>
   {% endif %}
