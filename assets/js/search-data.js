@@ -451,9 +451,9 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+          section: "News",},{id: "projects-raon-accelerator-research",
+          title: 'RAON Accelerator Research',
+          description: "Investigating exotic nuclei using the RAON heavy ion accelerator.",
           section: "Projects",handler: () => {
               window.location.href = "/physics-lab/projects/1_project/";
             },},{id: "projects-project-2",
@@ -496,16 +496,16 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/physics-lab/projects/9_project/";
-            },},{id: "teachings-data-science-fundamentals",
-          title: 'Data Science Fundamentals',
-          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
-          section: "Teachings",handler: () => {
-              window.location.href = "/physics-lab/teachings/data-science-fundamentals/";
             },},{id: "teachings-introduction-to-machine-learning",
           title: 'Introduction to Machine Learning',
           description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
           section: "Teachings",handler: () => {
               window.location.href = "/physics-lab/teachings/introduction-to-machine-learning/";
+            },},{id: "teachings-modern-nuclear-physics",
+          title: 'Modern Nuclear Physics',
+          description: "This course introduces the fundamental concepts of nuclear physics, from basic properties of nuclei to advanced research topics in exotic isotopes and nuclear astrophysics.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/physics-lab/teachings/modern-nuclear-physics/";
             },},{
         id: 'social-cv',
         title: 'CV',
@@ -518,7 +518,7 @@ ninja.data = [{
         title: 'email',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:%79%6F%75@%65%78%61%6D%70%6C%65.%63%6F%6D", "_blank");
+          window.open("mailto:%6D%69%6E%6A%61%65.%6B%69%6D@%73%6E%75.%61%63.%6B%72", "_blank");
         },
       },{
         id: 'social-inspire',
@@ -540,13 +540,6 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ", "_blank");
-        },
-      },{
-        id: 'social-custom_social',
-        title: 'Custom_social',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://www.alberteinstein.com/", "_blank");
         },
       },{
       id: 'light-theme',
