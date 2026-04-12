@@ -37,7 +37,13 @@
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 0;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f1f5f9;
+
+      &:last-child {
+        border-bottom: none;
+      }
 
       .preview {
         display: inline-block;
@@ -68,7 +74,10 @@
       }
 
       .title {
-        font-weight: bolder;
+        font-weight: 600;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin-bottom: 0.2rem;
       }
 
       .author {
@@ -100,17 +109,21 @@
 
       .links {
         a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
+          color: #475569 !important; /* text-slate-600 */
+          border: 1px solid #cbd5e1 !important; /* border-slate-300 */
+          border-radius: 0.375rem !important; /* rounded-md */
           padding-left: 1rem;
           padding-right: 1rem;
           padding-top: 0.25rem;
           padding-bottom: 0.25rem;
           margin-left: 0;
+          transition: all 0.2s ease-in-out;
+          background-color: transparent;
 
           &:hover {
-            color: var(--global-theme-color);
-            border-color: var(--global-theme-color);
+            color: #334155 !important;
+            border-color: #94a3b8 !important;
+            background-color: #f8fafc !important;
           }
         }
         a.award.btn {
@@ -185,4 +198,45 @@
 .citation,
 .citation-number {
   color: var(--global-theme-color);
+}
+
+.page-hidden {
+  display: none !important;
+}
+
+.unloaded {
+  display: none !important;
+}
+
+.bib-pagination {
+  .pagination {
+    .page-item {
+      .page-link {
+        color: #475569;
+        border: 1px solid #cbd5e1;
+        margin: 0 2px;
+        border-radius: 0.25rem;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background-color: #f8fafc;
+          border-color: #94a3b8;
+          color: #334155;
+        }
+      }
+
+      &.active .page-link {
+        background-color: #334155;
+        border-color: #334155;
+        color: #ffffff;
+      }
+
+      &.disabled .page-link {
+        color: #94a3b8;
+        pointer-events: none;
+        background-color: #f8fafc;
+        border-color: #e2e8f0;
+      }
+    }
+  }
 }

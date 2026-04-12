@@ -136,8 +136,42 @@ ul.task-list input[type="checkbox"] {
   }
 
   .card {
-    img {
+    border-radius: 4px; // 1. Sharpen the Cards (subtle rounding)
+    overflow: hidden; // Ensures the image respects the sharp corners
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+    border: 1px solid var(--global-divider-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02); // Flat initial look
+
+    &:hover {
+      transform: translateY(-5px); // 3. Hover Interaction: upward shift
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important; // Stronger shadow
+    }
+
+    img, .card-img-top {
       width: 100%;
+      border-radius: 0; // Remove Bootstrap's default curve
+      transition: transform 0.5s ease; // 3. Zoom effect transition
+    }
+
+    &:hover img, &:hover .card-img-top {
+      transform: scale(1.03); // Subtle zoom effect on hover
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem; // 2. Typography Adjustments
+      line-height: 1.35; // Break more naturally (leading-tight)
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      color: var(--global-text-color-light); // Visual hierarchy
+      line-height: 1.6;
     }
   }
 
@@ -152,12 +186,13 @@ ul.task-list input[type="checkbox"] {
   }
 
   h2.category {
-    color: var(--global-divider-color);
-    border-bottom: 1px solid var(--global-divider-color);
+    color: var(--global-theme-color);
+    border-bottom: 2px solid var(--global-theme-color);
     padding-top: 0.5rem;
     margin-top: 2rem;
-    margin-bottom: 1rem;
-    text-align: right;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-weight: bold;
   }
 }
 

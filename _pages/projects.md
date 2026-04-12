@@ -2,10 +2,10 @@
 layout: page
 title: Research
 permalink: /projects/
-description: Ongoing research activities and focus areas.
+description: Research groups and individual research topics in our lab.
 nav: true
 nav_order: 3
-display_categories: [work, fun]
+display_categories: [High-Energy Nuclear Experiments, Phenomenological Modeling]
 horizontal: false
 ---
 

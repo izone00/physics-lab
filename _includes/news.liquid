@@ -1,24 +1,22 @@
 <div class="news">
   {% if site.news != blank %}
-    <!-- Simple Search Bar -->
-    <div class="search-container" style="margin-bottom: 2rem;">
+    <!-- Search Bar -->
+    <div class="news-search-wrapper">
+      <div class="news-search-icon">
+        <i class="fas fa-search"></i>
+      </div>
       <input
         type="text"
         id="newsSearchInput"
         onkeyup="filterNews()"
-        placeholder="Search news titles or content..."
-        style="width: 100%; padding: 12px 15px; border: 1px solid var(--global-divider-color); border-radius: 8px; font-size: 1rem; background-color: var(--global-bg-color); color: var(--global-text-color); outline: none; transition: border-color 0.2s;"
+        placeholder="Search news..."
+        class="news-search-input"
       >
     </div>
 
     {% assign news_size = site.news | size %}
-    <div
-      class="table-responsive"
-      {% if include.limit and page.announcements.scrollable and news_size > 3 %}
-        style="max-height: 60vw"
-      {% endif %}
-    >
-      <table id="news-table" class="table table-sm table-borderless">
+    <div class="news-list-container">
+      <ul id="news-list" class="news-list">
         {% assign news = site.news | reverse %}
         {% if include.limit and page.announcements.limit %}
           {% assign news_limit = page.announcements.limit %}
@@ -26,48 +24,159 @@
           {% assign news_limit = news_size %}
         {% endif %}
         {% for item in news limit: news_limit %}
-          <tr class="news-item">
-            <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
-            <td class="news-content">
-              {% if item.inline %}
-                {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-              {% else %}
-                <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-              {% endif %}
-            </td>
-          </tr>
+          <li class="news-item">
+            {%- comment -%}
+              Use <div> wrapper instead of <a> to avoid nested <a> tags
+              when news_description contains HTML links.
+            {%- endcomment -%}
+            <div class="news-item-link">
+              <div class="news-item-date">
+                <span class="news-date-month">{{ item.date | date: '%b' }}</span>
+                <span class="news-date-day">{{ item.date | date: '%d' }}</span>
+                <span class="news-date-year">{{ item.date | date: '%Y' }}</span>
+              </div>
+
+              <div class="news-item-divider"></div>
+
+              <div class="news-item-body">
+                <div class="news-item-header">
+                  {% if item.category %}
+                    {% assign cat = item.category %}
+                    <span class="news-badge news-badge--{{ cat }}">{{ cat }}</span>
+                  {% endif %}
+                  {% if item.news_title %}
+                    <span class="news-item-title">{{ item.news_title }}</span>
+                  {% elsif item.title and item.title != "" %}
+                    <span class="news-item-title">{{ item.title }}</span>
+                  {% endif %}
+                </div>
+
+                <div class="news-item-desc">
+                  {% if item.news_description %}
+                    {{ item.news_description }}
+                  {% elsif item.inline %}
+                    {{ item.content | strip_html | strip | truncatewords: 30 }}
+                  {% else %}
+                    {{ item.excerpt | strip_html | strip | truncatewords: 30 }}
+                  {% endif %}
+                </div>
+              </div>
+
+              {% unless item.inline %}
+                <a href="{{ item.url | relative_url }}" class="news-item-arrow-link">
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              {% endunless %}
+            </div>
+          </li>
         {% endfor %}
-      </table>
+      </ul>
     </div>
 
-    <!-- Live Filter Script -->
-    <script>
-      function filterNews() {
-        var input = document.getElementById('newsSearchInput');
-        var filter = input.value.toLowerCase();
-        var table = document.getElementById('news-table');
-        var tr = table.getElementsByClassName('news-item');
+    <!-- Pagination Controls -->
+    <nav id="news-pagination" class="news-pagination" aria-label="News pagination"></nav>
 
-        for (var i = 0; i < tr.length; i++) {
-          var td = tr[i].getElementsByClassName('news-content')[0];
-          if (td) {
-            var textValue = td.textContent || td.innerText;
-            if (textValue.toLowerCase().indexOf(filter) > -1) {
-              tr[i].style.display = '';
+    <!-- Pagination + Filter Script -->
+    <script>
+      (function () {
+        var PAGE_SIZE = 10;
+        var currentPage = 1;
+        var allItems = Array.from(document.querySelectorAll('#news-list .news-item'));
+        var filteredItems = allItems.slice();
+
+        function renderPage() {
+          var totalPages = Math.max(1, Math.ceil(filteredItems.length / PAGE_SIZE));
+          if (currentPage > totalPages) currentPage = totalPages;
+
+          // Hide all, then show current page
+          allItems.forEach(function (el) { el.style.display = 'none'; });
+          var start = (currentPage - 1) * PAGE_SIZE;
+          var end = start + PAGE_SIZE;
+          for (var i = start; i < end && i < filteredItems.length; i++) {
+            filteredItems[i].style.display = '';
+          }
+
+          renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+          var nav = document.getElementById('news-pagination');
+          if (totalPages <= 1) { nav.innerHTML = ''; return; }
+
+          var html = '';
+
+          // Prev
+          html += '<button class="news-page-btn' + (currentPage === 1 ? ' disabled' : '') + '"'
+                + (currentPage === 1 ? ' disabled' : '')
+                + ' data-page="' + (currentPage - 1) + '"'
+                + ' aria-label="Previous page">&lsaquo;</button>';
+
+          // Page numbers (show max 7 with ellipsis)
+          var pages = getPaginationRange(currentPage, totalPages);
+          for (var i = 0; i < pages.length; i++) {
+            var p = pages[i];
+            if (p === '...') {
+              html += '<span class="news-page-ellipsis">&hellip;</span>';
             } else {
-              tr[i].style.display = 'none';
+              html += '<button class="news-page-btn' + (p === currentPage ? ' active' : '') + '"'
+                    + ' data-page="' + p + '">' + p + '</button>';
             }
           }
-        }
-      }
 
-      // Add focus effect via JS for better integration with theme variables
-      document.getElementById('newsSearchInput').addEventListener('focus', function () {
-        this.style.borderColor = 'var(--global-theme-color)';
-      });
-      document.getElementById('newsSearchInput').addEventListener('blur', function () {
-        this.style.borderColor = 'var(--global-divider-color)';
-      });
+          // Next
+          html += '<button class="news-page-btn' + (currentPage === totalPages ? ' disabled' : '') + '"'
+                + (currentPage === totalPages ? ' disabled' : '')
+                + ' data-page="' + (currentPage + 1) + '"'
+                + ' aria-label="Next page">&rsaquo;</button>';
+
+          nav.innerHTML = html;
+
+          // Bind click events
+          var btns = nav.querySelectorAll('.news-page-btn:not(.disabled)');
+          btns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              currentPage = parseInt(this.getAttribute('data-page'));
+              renderPage();
+              // Scroll to top of news list
+              document.querySelector('.news').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          });
+        }
+
+        function getPaginationRange(current, total) {
+          if (total <= 7) {
+            return Array.from({ length: total }, function (_, i) { return i + 1; });
+          }
+          var pages = [];
+          pages.push(1);
+          if (current > 3) pages.push('...');
+          var rangeStart = Math.max(2, current - 1);
+          var rangeEnd = Math.min(total - 1, current + 1);
+          for (var i = rangeStart; i <= rangeEnd; i++) pages.push(i);
+          if (current < total - 2) pages.push('...');
+          pages.push(total);
+          return pages;
+        }
+
+        // Search filter (resets to page 1)
+        window.filterNews = function () {
+          var filter = document.getElementById('newsSearchInput').value.toLowerCase();
+          if (filter === '') {
+            filteredItems = allItems.slice();
+          } else {
+            filteredItems = allItems.filter(function (el) {
+              var body = el.querySelector('.news-item-body');
+              var text = body ? (body.textContent || body.innerText) : '';
+              return text.toLowerCase().indexOf(filter) > -1;
+            });
+          }
+          currentPage = 1;
+          renderPage();
+        };
+
+        // Initial render
+        renderPage();
+      })();
     </script>
 
   {% else %}

@@ -1,5 +1,20 @@
 ---
 ---
+{% assign card_bg = '#ffffff' %}
+{% assign badge_color = '' %}
+{% if entry.tier %}
+  {% if entry.tier == 'Top10' %}
+    {% assign badge_color = 'background-color: rgba(202, 138, 4, 0.1) !important; color: #854d0e !important; border: transparent !important;' %}
+  {% elsif entry.tier == 'Q1' %}
+    {% assign badge_color = 'background-color: rgba(59, 130, 246, 0.1) !important; color: #1d4ed8 !important; border: transparent !important;' %}
+  {% elsif entry.tier == 'Q2' %}
+    {% assign badge_color = 'background-color: rgba(100, 116, 139, 0.1) !important; color: #475569 !important; border: transparent !important;' %}
+  {% else %}
+    {% assign badge_color = 'background-color: rgba(148, 163, 184, 0.1) !important; color: #64748b !important; border: transparent !important;' %}
+  {% endif %}
+{% endif %}
+
+<div class="bib-entry">
 <div class="row">
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
@@ -12,17 +27,19 @@
           <abbr
             class="badge rounded w-100"
             {% if venue_style %}
-              {{ venue_style }}
+              {{ venue_style | replace: 'style="', 'style="margin-top: 0.15rem; box-shadow: none !important; ' }}
+            {% else %}
+              style="margin-top: 0.15rem; box-shadow: none !important; background-color: #f1f5f9 !important; color: #334155 !important; border: 1px solid #e2e8f0 !important;"
             {% endif -%}
           >
             {% if site.data.venues[entry.abbr].url %}
-              <a href="{{ site.data.venues[entry.abbr].url }}">{{ entry.abbr }}</a>
+              <a href="{{ site.data.venues[entry.abbr].url }}" style="color: #334155 !important;">{{ entry.abbr }}</a>
             {% else %}
-              <div>{{- entry.abbr -}}</div>
+              <div style="color: #334155 !important;">{{- entry.abbr -}}</div>
             {% endif %}
           </abbr>
         {% else %}
-          <abbr class="badge rounded w-100">{{ entry.abbr }}</abbr>
+          <abbr class="badge rounded w-100" style="margin-top: 0.15rem; box-shadow: none !important; background-color: #f1f5f9 !important; color: #334155 !important; border: 1px solid #e2e8f0 !important;">{{ entry.abbr }}</abbr>
         {% endif %}
       {% endif %}
       {% if entry.preview %}
@@ -48,9 +65,13 @@
   <!-- Entry bib key -->
   <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    <div class="title">{{ entry.title }}
+      {% if entry.tier %}
+        <span class="badge rounded-pill" style="{{ badge_color }} font-size: 0.65rem; font-weight: normal; margin-left: 0.5rem; padding: 0.2rem 0.4rem; vertical-align: middle; box-shadow: none !important;">{{ entry.tier }}</span>
+      {% endif %}
+    </div>
     <!-- Author -->
-    <div class="author">
+    <div class="author" style="margin-bottom: 0.15rem; font-size: 0.85rem;">
       {% assign author_array_size = entry.author_array | size %}
 
       {% assign author_array_limit = author_array_size %}
@@ -82,9 +103,11 @@
           {% if forloop.first == false -%}
             {%- if forloop.length > 2 %}, {% elsif forloop.length == 2 %}  {% endif %}
           {%- endif %}
-          {%- if forloop.last and author_array_limit == author_array_size %}and {% endif -%}
+          {%- if forloop.last and author_array_limit == author_array_size and author.last != 'others' %}and {% endif -%}
         {% endif %}
-        {%- if author_is_self -%}
+        {%- if author.last == 'others' -%}
+          <em>et al.</em>
+        {%- elsif author_is_self -%}
           <em>
             {{- author.first }}
             {{ author_last_html -}}
@@ -152,11 +175,11 @@
     {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
     {% assign thesis = 'thesis,mastersthesis,phdthesis' | split: ',' %}
     {% if entry.type == 'article' %}
-      {% capture entrytype %}<em>{{ entry.journal }}</em>{% endcapture %}
+      {% capture entrytype %}<em style="font-family: 'Merriweather', serif; font-weight: 500; color: #334155;">{{ entry.journal }}</em>{% endcapture %}
     {% elsif proceedings contains entry.type %}
-      {% capture entrytype %}<em>In {{ entry.booktitle }}</em>{% endcapture %}
+      {% capture entrytype %}<em style="font-family: 'Merriweather', serif; font-weight: 500; color: #334155;">In {{ entry.booktitle }}</em>{% endcapture %}
     {% elsif thesis contains entry.type %}
-      {% capture entrytype %}<em>{{ entry.school }}</em>{% endcapture %}
+      {% capture entrytype %}<em style="font-family: 'Merriweather', serif; font-weight: 500; color: #334155;">{{ entry.school }}</em>{% endcapture %}
     {% else %}
       {% capture entrytype %}{% endcapture %}
     {% endif %}
@@ -180,7 +203,7 @@
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
     {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
-    <div class="periodical">
+    <div class="periodical" style="margin-bottom: 0.4rem; font-size: 0.85rem;">
       {{ periodical | strip }}
     </div>
     <div class="periodical">
@@ -392,4 +415,5 @@
       </div>
     {% endif %}
   </div>
+</div>
 </div>

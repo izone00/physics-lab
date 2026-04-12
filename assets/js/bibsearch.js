@@ -1,70 +1,147 @@
 import { highlightSearchTerm } from "./highlight-search-term.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  // actual bibsearch logic
-  const filterItems = (searchTerm) => {
-    document.querySelectorAll(".bibliography, .unloaded").forEach((element) => element.classList.remove("unloaded"));
+  let currentPage = 1;
+  const itemsPerPage = 10;
 
-    // highlight-search-term
-    if (CSS.highlights) {
-      const nonMatchingElements = highlightSearchTerm({ search: searchTerm, selector: ".bibliography > li" });
-      if (nonMatchingElements == null) {
-        return;
+  const applyPagination = (scrollToTop = false) => {
+    // 1. Reset visibility of all items
+    document.querySelectorAll(".bibliography > li").forEach((el) => {
+      el.classList.remove("page-hidden");
+    });
+    document.querySelectorAll("h2.bibliography, ol.bibliography").forEach((el) => {
+      el.classList.remove("page-hidden");
+    });
+
+    // 2. Filter out items that don't match search (handled in filterItems)
+    // 3. Paginate only the items that match the search
+    const visibleItems = Array.from(document.querySelectorAll(".bibliography > li:not(.unloaded)"));
+    const totalItems = visibleItems.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    visibleItems.forEach((item, index) => {
+      if (index < (currentPage - 1) * itemsPerPage || index >= currentPage * itemsPerPage) {
+        item.classList.add("page-hidden");
       }
-      nonMatchingElements.forEach((element) => {
-        element.classList.add("unloaded");
-      });
-    } else {
-      // Simply add unloaded class to all non-matching items if Browser does not support CSS highlights
-      document.querySelectorAll(".bibliography > li").forEach((element, index) => {
-        const text = element.innerText.toLowerCase();
-        if (text.indexOf(searchTerm) == -1) {
-          element.classList.add("unloaded");
-        }
-      });
-    }
+    });
 
-    document.querySelectorAll("h2.bibliography").forEach(function (element) {
-      let iterator = element.nextElementSibling; // get next sibling element after h2, which can be h3 or ol
-      let hideFirstGroupingElement = true;
-      // iterate until next group element (h2), which is already selected by the querySelectorAll(-).forEach(-)
-      while (iterator && iterator.tagName !== "H2") {
-        if (iterator.tagName === "OL") {
-          const ol = iterator;
-          const unloadedSiblings = ol.querySelectorAll(":scope > li.unloaded");
-          const totalSiblings = ol.querySelectorAll(":scope > li");
-
-          if (unloadedSiblings.length === totalSiblings.length) {
-            ol.previousElementSibling.classList.add("unloaded"); // Add the '.unloaded' class to the previous grouping element (e.g. year)
-            ol.classList.add("unloaded"); // Add the '.unloaded' class to the OL itself
-          } else {
-            hideFirstGroupingElement = false; // there is at least some visible entry, don't hide the first grouping element
+    // 4. Hide empty year headers
+    document.querySelectorAll("h2.bibliography").forEach((header) => {
+      let next = header.nextElementSibling;
+      let hasVisibleContent = false;
+      while (next && next.tagName !== "H2") {
+        if (next.tagName === "OL") {
+          const visibleInList = next.querySelectorAll(":scope > li:not(.unloaded):not(.page-hidden)");
+          if (visibleInList.length > 0) {
+            hasVisibleContent = true;
+            break;
           }
         }
-        iterator = iterator.nextElementSibling;
+        next = next.nextElementSibling;
       }
-      // Add unloaded class to first grouping element (e.g. year) if no item left in this group
-      if (hideFirstGroupingElement) {
-        element.classList.add("unloaded");
+      if (!hasVisibleContent) {
+        header.classList.add("page-hidden");
+        // Also hide the ol if it's empty
+        let ol = header.nextElementSibling;
+        if (ol && ol.tagName === "OL") ol.classList.add("page-hidden");
       }
+    });
+
+    // 5. Update Pagination UI
+    updatePaginationUI(totalPages);
+
+    if (scrollToTop) {
+      const top = document.querySelector(".publications")?.offsetTop || 0;
+      window.scrollTo({ top: top - 80, behavior: "smooth" });
+    }
+  };
+
+  const updatePaginationUI = (totalPages) => {
+    let container = document.querySelector(".bib-pagination");
+    if (!container) {
+      container = document.createElement("nav");
+      container.className = "bib-pagination mt-5 mb-5";
+      document.querySelector(".publications")?.appendChild(container);
+    }
+
+    if (totalPages <= 1) {
+      container.innerHTML = "";
+      return;
+    }
+
+    let html = '<ul class="pagination justify-content-center">';
+    
+    // Prev
+    html += `<li class="page-item ${currentPage === 1 ? "disabled" : ""}">
+              <a class="page-link" href="#" data-page="${currentPage - 1}">&laquo;</a>
+            </li>`;
+
+    // Page Numbers
+    for (let i = 1; i <= totalPages; i++) {
+      html += `<li class="page-item ${currentPage === i ? "active" : ""}">
+                <a class="page-link" href="#" data-page="${i}">${i}</a>
+              </li>`;
+    }
+
+    // Next
+    html += `<li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
+              <a class="page-link" href="#" data-page="${currentPage + 1}">&raquo;</a>
+            </li>`;
+
+    html += "</ul>";
+    container.innerHTML = html;
+
+    // Click handlers
+    container.querySelectorAll(".page-link").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const page = parseInt(link.getAttribute("data-page"));
+        if (page >= 1 && page <= totalPages) {
+          currentPage = page;
+          applyPagination(true);
+        }
+      });
     });
   };
 
-  const updateInputField = () => {
-    const hashValue = decodeURIComponent(window.location.hash.substring(1)); // Remove the '#' character
-    document.getElementById("bibsearch").value = hashValue;
-    filterItems(hashValue);
+  const filterItems = (searchTerm) => {
+    currentPage = 1;
+    document.querySelectorAll(".bibliography > li").forEach((element) => {
+      element.classList.remove("unloaded");
+    });
+
+    document.querySelectorAll(".bibliography > li").forEach((element) => {
+      const text = element.innerText.toLowerCase();
+      if (searchTerm && text.indexOf(searchTerm) === -1) {
+        element.classList.add("unloaded");
+      }
+    });
+
+    applyPagination(false);
   };
 
-  // Sensitive search. Only start searching if there's been no input for 300 ms
+  const updateInputField = () => {
+    const hashValue = decodeURIComponent(window.location.hash.substring(1));
+    const input = document.getElementById("bibsearch");
+    if (input) {
+      input.value = hashValue;
+      filterItems(hashValue);
+    } else {
+      // Fallback if search bar isn't present
+      applyPagination(false);
+    }
+  };
+
   let timeoutId;
-  document.getElementById("bibsearch").addEventListener("input", function () {
-    clearTimeout(timeoutId); // Clear the previous timeout
-    const searchTerm = this.value.toLowerCase();
-    timeoutId = setTimeout(filterItems(searchTerm), 300);
-  });
+  const searchInput = document.getElementById("bibsearch");
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      clearTimeout(timeoutId);
+      const searchTerm = this.value.toLowerCase();
+      timeoutId = setTimeout(() => filterItems(searchTerm), 300);
+    });
+  }
 
-  window.addEventListener("hashchange", updateInputField); // Update the filter when the hash changes
-
-  updateInputField(); // Update filter when page loads
+  window.addEventListener("hashchange", updateInputField);
+  updateInputField();
 });

@@ -30,7 +30,7 @@ nav_order: 2
 .person-card {
   background: var(--global-card-bg-color);
   border: 1px solid var(--global-divider-color);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 1.5rem 1rem;
   text-align: center;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -45,7 +45,7 @@ nav_order: 2
 }
 .person-avatar {
   width: 90px; height: 90px;
-  border-radius: 50%;
+  border-radius: 12px;
   background: var(--global-divider-color);
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 1rem;
@@ -88,7 +88,7 @@ nav_order: 2
   display: flex;
   background: var(--global-card-bg-color);
   border: 1px solid var(--global-divider-color);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 2rem;
   gap: 2rem;
   align-items: center;
@@ -101,7 +101,7 @@ nav_order: 2
 .pi-avatar {
   flex-shrink: 0;
   width: 130px; height: 130px;
-  border-radius: 50%;
+  border-radius: 12px;
   background: var(--global-divider-color);
   display: flex; align-items: center; justify-content: center;
   font-size: 4rem; color: var(--global-theme-color);
