@@ -11,6 +11,7 @@ related_publications: true
 Systematic study of J/$\psi$ and $\psi(2S)$ states in p+p collisions.
 
 ### Research Highlights
+
 - Measurement of charmonia states at forward and backward rapidities.
 - Probing gluon densities and potential shadow effects.
 - Analysis of transition from small-system to large-system dynamics.

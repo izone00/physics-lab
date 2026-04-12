@@ -11,6 +11,7 @@ related_publications: true
 Theoretical and numerical modeling of the relativistic heavy-ion collision stages.
 
 ### Research Highlights
+
 - Hydrodynamic evolution of the fireball.
 - Parton energy loss (jet quenching) mechanisms.
 - Extraction of QGP transport coefficients (viscosity, diffusion).

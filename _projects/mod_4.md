@@ -11,6 +11,7 @@ related_publications: true
 Performance testing and optimization of radiation detection systems.
 
 ### Research Highlights
+
 - Monte Carlo simulations of the LAMPS Start Counter.
 - Interaction modeling of 100 MeV proton beams.
 - Timing resolution and efficiency optimization for nuclear spectroscopy.

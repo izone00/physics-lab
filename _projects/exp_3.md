@@ -11,6 +11,7 @@ related_publications: true
 Investigating the production of charmed baryons $\Xi_c$ as a function of event activity at ALICE.
 
 ### Research Highlights
+
 - Correlation between charm production and global event multiplicity.
 - Testing hadronization models (String Fragmentation vs. Coalescence).
 - High-precision vertex reconstruction for short-lived baryons.

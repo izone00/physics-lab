@@ -46,7 +46,7 @@
                   {% endif %}
                   {% if item.news_title %}
                     <span class="news-item-title">{{ item.news_title }}</span>
-                  {% elsif item.title and item.title != "" %}
+                  {% elsif item.title and item.title != '' %}
                     <span class="news-item-title">{{ item.title }}</span>
                   {% endif %}
                 </div>
@@ -89,7 +89,9 @@
           if (currentPage > totalPages) currentPage = totalPages;
 
           // Hide all, then show current page
-          allItems.forEach(function (el) { el.style.display = 'none'; });
+          allItems.forEach(function (el) {
+            el.style.display = 'none';
+          });
           var start = (currentPage - 1) * PAGE_SIZE;
           var end = start + PAGE_SIZE;
           for (var i = start; i < end && i < filteredItems.length; i++) {
@@ -101,15 +103,23 @@
 
         function renderPagination(totalPages) {
           var nav = document.getElementById('news-pagination');
-          if (totalPages <= 1) { nav.innerHTML = ''; return; }
+          if (totalPages <= 1) {
+            nav.innerHTML = '';
+            return;
+          }
 
           var html = '';
 
           // Prev
-          html += '<button class="news-page-btn' + (currentPage === 1 ? ' disabled' : '') + '"'
-                + (currentPage === 1 ? ' disabled' : '')
-                + ' data-page="' + (currentPage - 1) + '"'
-                + ' aria-label="Previous page">&lsaquo;</button>';
+          html +=
+            '<button class="news-page-btn' +
+            (currentPage === 1 ? ' disabled' : '') +
+            '"' +
+            (currentPage === 1 ? ' disabled' : '') +
+            ' data-page="' +
+            (currentPage - 1) +
+            '"' +
+            ' aria-label="Previous page">&lsaquo;</button>';
 
           // Page numbers (show max 7 with ellipsis)
           var pages = getPaginationRange(currentPage, totalPages);
@@ -118,16 +128,20 @@
             if (p === '...') {
               html += '<span class="news-page-ellipsis">&hellip;</span>';
             } else {
-              html += '<button class="news-page-btn' + (p === currentPage ? ' active' : '') + '"'
-                    + ' data-page="' + p + '">' + p + '</button>';
+              html += '<button class="news-page-btn' + (p === currentPage ? ' active' : '') + '"' + ' data-page="' + p + '">' + p + '</button>';
             }
           }
 
           // Next
-          html += '<button class="news-page-btn' + (currentPage === totalPages ? ' disabled' : '') + '"'
-                + (currentPage === totalPages ? ' disabled' : '')
-                + ' data-page="' + (currentPage + 1) + '"'
-                + ' aria-label="Next page">&rsaquo;</button>';
+          html +=
+            '<button class="news-page-btn' +
+            (currentPage === totalPages ? ' disabled' : '') +
+            '"' +
+            (currentPage === totalPages ? ' disabled' : '') +
+            ' data-page="' +
+            (currentPage + 1) +
+            '"' +
+            ' aria-label="Next page">&rsaquo;</button>';
 
           nav.innerHTML = html;
 
@@ -145,7 +159,9 @@
 
         function getPaginationRange(current, total) {
           if (total <= 7) {
-            return Array.from({ length: total }, function (_, i) { return i + 1; });
+            return Array.from({ length: total }, function (_, i) {
+              return i + 1;
+            });
           }
           var pages = [];
           pages.push(1);
@@ -166,7 +182,7 @@
           } else {
             filteredItems = allItems.filter(function (el) {
               var body = el.querySelector('.news-item-body');
-              var text = body ? (body.textContent || body.innerText) : '';
+              var text = body ? body.textContent || body.innerText : '';
               return text.toLowerCase().indexOf(filter) > -1;
             });
           }

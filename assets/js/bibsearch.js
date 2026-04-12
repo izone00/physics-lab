@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let html = '<ul class="pagination justify-content-center">';
-    
+
     // Prev
     html += `<li class="page-item ${currentPage === 1 ? "disabled" : ""}">
               <a class="page-link" href="#" data-page="${currentPage - 1}">&laquo;</a>

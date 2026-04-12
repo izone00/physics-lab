@@ -11,6 +11,7 @@ related_publications: true
 This research focuses on improving the identification of bottom-quark jets using Graph Neural Networks (GNNs).
 
 ### Research Highlights
+
 - Optimized GNN architecture for high-multiplicity backgrounds.
 - Performance evaluation in oxygen-oxygen and lead-lead collision simulations.
 - Comparison with traditional CNN and BDT-based tagging methods.

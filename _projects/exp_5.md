@@ -11,6 +11,7 @@ related_publications: true
 Using hadronic resonances to probe the properties of the hadronic phase.
 
 ### Research Highlights
+
 - First measurement of K1(1270) production in pp collisions at ALICE.
 - Estimating the lifetime of the fireball using resonance suppression.
 - Reconstructing decays from high-occupancy event backgrounds.

@@ -15,6 +15,30 @@
     margin-bottom: 1em;
   }
 
+  input#bibsearch {
+    width: 60%;
+    max-width: 400px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.375rem;
+    background-color: var(--global-bg-color);
+    color: var(--global-text-color);
+    margin-bottom: 2rem;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.95rem;
+
+    &:focus {
+      outline: none;
+      border-color: var(--global-theme-color);
+      box-shadow: 0 0 0 2px rgba(var(--global-theme-color), 0.1);
+    }
+
+    &::placeholder {
+      color: var(--global-text-color-light);
+      opacity: 0.6;
+    }
+  }
+
   h2 {
     margin-bottom: 1rem;
 
@@ -24,11 +48,15 @@
   }
 
   h2.bibliography {
-    color: var(--global-divider-color);
+    color: var(--global-text-color-light);
     border-top: 1px solid var(--global-divider-color);
     padding-top: 1rem;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
     text-align: right;
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+    opacity: 0.6;
   }
 
   ol.bibliography {
@@ -109,9 +137,9 @@
 
       .links {
         a.btn {
-          color: #475569 !important; /* text-slate-600 */
-          border: 1px solid #cbd5e1 !important; /* border-slate-300 */
-          border-radius: 0.375rem !important; /* rounded-md */
+          color: var(--global-text-color-light) !important;
+          border: 1px solid var(--global-divider-color) !important;
+          border-radius: 0.375rem !important;
           padding-left: 1rem;
           padding-right: 1rem;
           padding-top: 0.25rem;
@@ -121,9 +149,9 @@
           background-color: transparent;
 
           &:hover {
-            color: #334155 !important;
-            border-color: #94a3b8 !important;
-            background-color: #f8fafc !important;
+            color: var(--global-text-color) !important;
+            border-color: var(--global-theme-color) !important;
+            background-color: var(--global-divider-color) !important;
           }
         }
         a.award.btn {
@@ -195,6 +223,19 @@
   }
 }
 
+.periodical {
+  color: var(--global-text-color-light);
+  font-family: "Merriweather", serif;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+
+  em {
+    color: var(--global-text-color) !important;
+    font-style: italic;
+    font-weight: 500;
+  }
+}
+
 .citation,
 .citation-number {
   color: var(--global-theme-color);
@@ -212,31 +253,88 @@
   .pagination {
     .page-item {
       .page-link {
-        color: #475569;
-        border: 1px solid #cbd5e1;
+        color: var(--global-text-color-light);
+        background-color: transparent;
+        border: 1px solid var(--global-divider-color);
         margin: 0 2px;
         border-radius: 0.25rem;
         transition: all 0.2s ease-in-out;
 
         &:hover {
-          background-color: #f8fafc;
-          border-color: #94a3b8;
-          color: #334155;
+          background-color: var(--global-divider-color);
+          border-color: var(--global-theme-color);
+          color: var(--global-text-color);
         }
       }
 
       &.active .page-link {
-        background-color: #334155;
-        border-color: #334155;
-        color: #ffffff;
+        background-color: var(--global-theme-color);
+        border-color: var(--global-theme-color);
+        color: var(--global-bg-color);
       }
 
       &.disabled .page-link {
-        color: #94a3b8;
+        color: var(--global-divider-color);
         pointer-events: none;
-        background-color: #f8fafc;
-        border-color: #e2e8f0;
+        background-color: transparent;
+        border-color: var(--global-divider-color);
       }
+    }
+  }
+}
+
+// Tier Badges
+.tier-badge {
+  font-size: 0.65rem;
+  font-weight: normal;
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.4rem;
+  vertical-align: middle;
+  box-shadow: none !important;
+  border-radius: 50rem !important;
+  border: transparent !important;
+
+  &.tier-top10 {
+    background-color: rgba(202, 138, 4, 0.1) !important;
+    color: #ca8a04 !important;
+  }
+
+  &.tier-q1 {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    color: #3b82f6 !important;
+  }
+
+  &.tier-q2 {
+    background-color: rgba(100, 116, 139, 0.1) !important;
+    color: #64748b !important;
+  }
+
+  &.tier-other {
+    background-color: rgba(148, 163, 184, 0.1) !important;
+    color: #94a3b8 !important;
+  }
+}
+
+html[data-theme="dark"] {
+  .tier-badge {
+    &.tier-top10 {
+      background-color: rgba(234, 179, 8, 0.2) !important;
+      color: #facc15 !important;
+    }
+
+    &.tier-q1 {
+      background-color: rgba(96, 165, 250, 0.2) !important;
+      color: #93c5fd !important;
+    }
+
+    &.tier-q2 {
+      background-color: rgba(148, 163, 184, 0.2) !important;
+      color: #cbd5e1 !important;
+    }
+
+    &.tier-other {
+      background-color: rgba(148, 163, 184, 0.2) !important;
+      color: #94a3b8 !important;
     }
   }
 }
