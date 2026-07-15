@@ -7,42 +7,42 @@ ninja.data = [{
     title: "Home",
     section: "Navigation",
     handler: () => {
-      window.location.href = "/";
+      window.location.href = "/physics-lab/";
     },
   },{id: "nav-people",
           title: "People",
           description: "Members of the Nuclear Physics Laboratory at Yonsei University.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/people/";
+            window.location.href = "/physics-lab/people/";
           },
         },{id: "nav-research",
           title: "Research",
           description: "Research groups and individual research topics in our lab.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/projects/";
+            window.location.href = "/physics-lab/projects/";
           },
         },{id: "nav-publications",
           title: "Publications",
           description: "Selected scholarly works from the laboratory.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/publications/";
+            window.location.href = "/physics-lab/publications/";
           },
         },{id: "nav-news",
           title: "News",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/news/";
+            window.location.href = "/physics-lab/news/";
           },
         },{id: "nav-gallery",
           title: "Gallery",
           description: "Visual highlights from our laboratory and experiments.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/gallery/";
+            window.location.href = "/physics-lab/gallery/";
           },
         },{id: "post-a-post-with-plotly-js",
         
@@ -52,7 +52,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/plotly/";
+            window.location.href = "/physics-lab/blog/2025/plotly/";
           
         },
       },{id: "post-a-post-with-image-galleries",
@@ -63,7 +63,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/photo-gallery/";
+            window.location.href = "/physics-lab/blog/2024/photo-gallery/";
           
         },
       },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
@@ -85,7 +85,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/tabs/";
+            window.location.href = "/physics-lab/blog/2024/tabs/";
           
         },
       },{id: "post-a-post-with-typograms",
@@ -96,7 +96,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/typograms/";
+            window.location.href = "/physics-lab/blog/2024/typograms/";
           
         },
       },{id: "post-a-post-that-can-be-cited",
@@ -107,7 +107,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/post-citation/";
+            window.location.href = "/physics-lab/blog/2024/post-citation/";
           
         },
       },{id: "post-a-post-with-pseudo-code",
@@ -118,7 +118,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/pseudocode/";
+            window.location.href = "/physics-lab/blog/2024/pseudocode/";
           
         },
       },{id: "post-a-post-with-code-diff",
@@ -129,7 +129,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/code-diff/";
+            window.location.href = "/physics-lab/blog/2024/code-diff/";
           
         },
       },{id: "post-a-post-with-advanced-image-components",
@@ -140,7 +140,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/advanced-images/";
+            window.location.href = "/physics-lab/blog/2024/advanced-images/";
           
         },
       },{id: "post-a-post-with-vega-lite",
@@ -151,7 +151,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/vega-lite/";
+            window.location.href = "/physics-lab/blog/2024/vega-lite/";
           
         },
       },{id: "post-a-post-with-geojson",
@@ -162,7 +162,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/geojson-map/";
+            window.location.href = "/physics-lab/blog/2024/geojson-map/";
           
         },
       },{id: "post-a-post-with-echarts",
@@ -173,7 +173,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/echarts/";
+            window.location.href = "/physics-lab/blog/2024/echarts/";
           
         },
       },{id: "post-a-post-with-chart-js",
@@ -184,7 +184,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/chartjs/";
+            window.location.href = "/physics-lab/blog/2024/chartjs/";
           
         },
       },{id: "post-a-post-with-tikzjax",
@@ -195,7 +195,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/tikzjax/";
+            window.location.href = "/physics-lab/blog/2023/tikzjax/";
           
         },
       },{id: "post-a-post-with-bibliography",
@@ -206,7 +206,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/post-bibliography/";
+            window.location.href = "/physics-lab/blog/2023/post-bibliography/";
           
         },
       },{id: "post-a-post-with-jupyter-notebook",
@@ -217,7 +217,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/jupyter-notebook/";
+            window.location.href = "/physics-lab/blog/2023/jupyter-notebook/";
           
         },
       },{id: "post-a-post-with-custom-blockquotes",
@@ -228,7 +228,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/custom-blockquotes/";
+            window.location.href = "/physics-lab/blog/2023/custom-blockquotes/";
           
         },
       },{id: "post-a-post-with-table-of-contents-on-a-sidebar",
@@ -239,7 +239,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/sidebar-table-of-contents/";
+            window.location.href = "/physics-lab/blog/2023/sidebar-table-of-contents/";
           
         },
       },{id: "post-a-post-with-audios",
@@ -250,7 +250,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/audios/";
+            window.location.href = "/physics-lab/blog/2023/audios/";
           
         },
       },{id: "post-a-post-with-videos",
@@ -261,7 +261,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/videos/";
+            window.location.href = "/physics-lab/blog/2023/videos/";
           
         },
       },{id: "post-displaying-beautiful-tables-with-bootstrap-tables",
@@ -272,7 +272,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/tables/";
+            window.location.href = "/physics-lab/blog/2023/tables/";
           
         },
       },{id: "post-a-post-with-table-of-contents",
@@ -283,7 +283,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/table-of-contents/";
+            window.location.href = "/physics-lab/blog/2023/table-of-contents/";
           
         },
       },{id: "post-a-post-with-giscus-comments",
@@ -294,7 +294,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2022/giscus-comments/";
+            window.location.href = "/physics-lab/blog/2022/giscus-comments/";
           
         },
       },{id: "post-displaying-external-posts-on-your-al-folio-blog",
@@ -316,7 +316,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/assets/pdf/example_pdf.pdf";
+            window.location.href = "/physics-lab/assets/pdf/example_pdf.pdf";
           
         },
       },{id: "post-a-post-with-diagrams",
@@ -327,7 +327,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2021/diagrams/";
+            window.location.href = "/physics-lab/blog/2021/diagrams/";
           
         },
       },{id: "post-a-distill-style-blog-post",
@@ -338,7 +338,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2021/distill/";
+            window.location.href = "/physics-lab/blog/2021/distill/";
           
         },
       },{id: "post-a-post-with-twitter",
@@ -349,7 +349,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2020/twitter/";
+            window.location.href = "/physics-lab/blog/2020/twitter/";
           
         },
       },{id: "post-a-post-with-disqus-comments",
@@ -360,7 +360,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2015/disqus-comments/";
+            window.location.href = "/physics-lab/blog/2015/disqus-comments/";
           
         },
       },{id: "post-a-post-with-math",
@@ -371,7 +371,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2015/math/";
+            window.location.href = "/physics-lab/blog/2015/math/";
           
         },
       },{id: "post-a-post-with-code",
@@ -382,7 +382,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2015/code/";
+            window.location.href = "/physics-lab/blog/2015/code/";
           
         },
       },{id: "post-a-post-with-images",
@@ -393,7 +393,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2015/images/";
+            window.location.href = "/physics-lab/blog/2015/images/";
           
         },
       },{id: "post-a-post-with-formatting-and-links",
@@ -404,14 +404,14 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2015/formatting-and-links/";
+            window.location.href = "/physics-lab/blog/2015/formatting-and-links/";
           
         },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
+              window.location.href = "/physics-lab/books/the_godfather/";
             },},{id: "news-",
           title: '',
           description: "",
@@ -725,57 +725,57 @@ ninja.data = [{
           title: 'b-jet GNN Tagging',
           description: "Development of GNN-based methods for b-jet tagging in heavy-ion environments.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/exp_1/";
+              window.location.href = "/physics-lab/projects/exp_1/";
             },},{id: "projects-vector-meson-production",
           title: 'Vector Meson Production',
           description: "Studying low-mass vector meson production at forward rapidity.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/exp_2/";
+              window.location.href = "/physics-lab/projects/exp_2/";
             },},{id: "projects-charmed-baryon-multiplicity",
           title: 'Charmed Baryon Multiplicity',
           description: "Multiplicity dependence of Xi_c production in pp collisions.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/exp_3/";
+              window.location.href = "/physics-lab/projects/exp_3/";
             },},{id: "projects-quarkonia-rapidity-dependence",
           title: 'Quarkonia Rapidity Dependence',
           description: "Multiplicity dependent J/psi and psi(2S) production at forward/backward rapidity.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/exp_4/";
+              window.location.href = "/physics-lab/projects/exp_4/";
             },},{id: "projects-hadronic-resonances-amp-k1-1270",
           title: 'Hadronic Resonances &amp;amp; K1(1270)',
           description: "Studying K1(1270) and resonant states in pp and AA collisions.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/exp_5/";
+              window.location.href = "/physics-lab/projects/exp_5/";
             },},{id: "projects-selection-bias-in-small-systems",
           title: 'Selection Bias in Small Systems',
           description: "Effects of selection bias on high-pT yield measurements in small systems.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/mod_1/";
+              window.location.href = "/physics-lab/projects/mod_1/";
             },},{id: "projects-cnn-image-based-tagging",
           title: 'CNN Image-based Tagging',
           description: "Deep learning for jet identification using image-like representations.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/mod_2/";
+              window.location.href = "/physics-lab/projects/mod_2/";
             },},{id: "projects-heavy-ion-collision-modeling",
           title: 'Heavy Ion Collision Modeling',
           description: "Simulating the evolution of the Quark-Gluon Plasma.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/mod_3/";
+              window.location.href = "/physics-lab/projects/mod_3/";
             },},{id: "projects-detector-simulation-amp-opt",
           title: 'Detector Simulation &amp;amp; Opt.',
           description: "Modeling performance for RAON and lamps detectors.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/mod_4/";
+              window.location.href = "/physics-lab/projects/mod_4/";
             },},{id: "teachings-introduction-to-machine-learning",
           title: 'Introduction to Machine Learning',
           description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
           section: "Teachings",handler: () => {
-              window.location.href = "/teachings/introduction-to-machine-learning/";
+              window.location.href = "/physics-lab/teachings/introduction-to-machine-learning/";
             },},{id: "teachings-modern-nuclear-physics",
           title: 'Modern Nuclear Physics',
           description: "This course introduces the fundamental concepts of nuclear physics, from basic properties of nuclei to advanced research topics in exotic isotopes and nuclear astrophysics.",
           section: "Teachings",handler: () => {
-              window.location.href = "/teachings/modern-nuclear-physics/";
+              window.location.href = "/physics-lab/teachings/modern-nuclear-physics/";
             },},{
         id: 'social-email',
         title: 'email',

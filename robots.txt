@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://yonsei-npl.yonsei.ac.kr/sitemap.xml
+Sitemap: https://mjkim525.github.io/physics-lab/sitemap.xml
