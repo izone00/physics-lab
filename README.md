@@ -1,5 +1,7 @@
 # al-folio
 
+> 이 저장소의 Docker 기반 로컬 실행 방법은 [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md)를 참고하세요.
+
 <div align="center">
 
 [![Preview](readme_preview/al-folio-preview.png)](https://alshedivat.github.io/al-folio/)

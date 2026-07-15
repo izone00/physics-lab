@@ -1,6 +1,6 @@
 # Yonsei NPL 웹사이트 인수인계 가이드
 
-> **Kim Minjae's Nuclear Physics Laboratory @ Yonsei University**  
+> **Yonsei Nuclear Physics Laboratory**
 > 배포 주소: **https://mjkim525.github.io/physics-lab**  
 > GitHub 리포: **https://github.com/mjkim525/physics-lab**
 

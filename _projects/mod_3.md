@@ -2,7 +2,7 @@
 layout: page
 title: Heavy Ion Collision Modeling
 description: Simulating the evolution of the Quark-Gluon Plasma.
-img: assets/img/11.jpg
+img: assets/img/carousel/carousel_04.png
 importance: 3
 category: Phenomenological Modeling
 related_publications: true

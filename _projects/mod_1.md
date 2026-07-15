@@ -2,7 +2,7 @@
 layout: page
 title: Selection Bias in Small Systems
 description: Effects of selection bias on high-pT yield measurements in small systems.
-img: assets/img/4.jpg
+img: assets/img/carousel/carousel_07.png
 importance: 1
 category: Phenomenological Modeling
 related_publications: true

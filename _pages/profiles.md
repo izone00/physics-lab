@@ -62,10 +62,7 @@ nav_order: 2
   font-size: 0.85rem; 
   font-weight: 500;
   color: var(--global-text-color-light); 
-  margin-bottom: 0.5rem; 
-}
-.person-interests {
-  font-size: 0.75rem;
+  margin-bot;
   color: var(--global-text-color-light);
   opacity: 0.85;
   margin-bottom: 1rem;
@@ -119,10 +116,7 @@ nav_order: 2
   font-size: 1rem; 
   font-weight: 500; 
   color: var(--global-text-color-light); 
-  margin-bottom: 0.5rem; 
-}
-.pi-interests { 
-  font-size: 0.9rem; 
+  margin;
   color: var(--global-text-color-light); 
   margin-bottom: 1rem; 
 }
@@ -177,14 +171,8 @@ nav_order: 2
     <div class="pi-info">
       <div class="pi-name">LIM, SangHoon</div>
       <div class="pi-title">Associate Professor</div>
-      <div class="pi-interests">High Energy Nuclear Physics, Quark-Gluon Plasma</div>
       <div class="pi-contact">
-        <i class="fa-solid fa-envelope"></i> <a href="mailto:shlim@pusan.ac.kr">shlim@pusan.ac.kr</a><br>
-        <i class="fa-solid fa-phone"></i> 051-510-7731
-      </div>
-      <div class="pi-socials">
-        <a href="#" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-        <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <i class="fa-solid fa-envelope"></i> <a href="mailto:{{ site.email }}">{{ site.email }}</a>
       </div>
     </div>
   </div>
@@ -197,42 +185,24 @@ nav_order: 2
       <div class="person-avatar">🔬</div>
       <div class="person-name">BOK, JeongSu</div>
       <div class="person-title">Research Professor</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
       <div class="person-avatar">🔬</div>
       <div class="person-name">KIM, Chong</div>
       <div class="person-title">Postdoctoral Researcher</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
       <div class="person-avatar">🔬</div>
       <div class="person-name">DANISCH, Meike</div>
       <div class="person-title">Postdoctoral Researcher</div>
-      <div class="person-interests">Nuclear Physics</div>
-      <div class="person-email"></div>
-    </div>
-    <div class="person-card">
-      <div class="person-avatar">🔬</div>
-      <div class="person-name">SMITH, Krista</div>
-      <div class="person-title">Postdoctoral Researcher</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
       <div class="person-avatar">🔬</div>
       <div class="person-name">LEE, JongWon</div>
       <div class="person-title">Postdoctoral Researcher</div>
-      <div class="person-interests">Nuclear Physics</div>
-      <div class="person-email"></div>
-    </div>
-    <div class="person-card">
-      <div class="person-avatar">🔬</div>
-      <div class="person-name">PARK, JongHan</div>
-      <div class="person-title">Visiting Researcher</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
   </div>
@@ -242,31 +212,51 @@ nav_order: 2
   <h3>Graduate Students (PhD)</h3>
   <div class="people-grid">
     <div class="person-card">
-      <div class="person-avatar">🎓</div>
+      <div class="person-avatar">📚</div>
       <div class="person-name">RYU, JaeHyeok</div>
       <div class="person-title">PhD Student</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
-      <div class="person-avatar">🎓</div>
+      <div class="person-avatar">📚</div>
       <div class="person-name">JI, SuJeong</div>
       <div class="person-title">PhD Student</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
-      <div class="person-avatar">🎓</div>
+      <div class="person-avatar">📚</div>
       <div class="person-name">LIM, HyunJi</div>
       <div class="person-title">PhD Student</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
-      <div class="person-avatar">🎓</div>
+      <div class="person-avatar">📚</div>
       <div class="person-name">OH, JongHo</div>
       <div class="person-title">PhD Student</div>
-      <div class="person-interests">Nuclear Physics</div>
+      <div class="person-email"></div>
+    </div>
+    <div class="person-card">
+      <div class="person-avatar">📚</div>
+      <div class="person-name">CHOI, ChangHwan</div>
+      <div class="person-title">PhD Student</div>
+      <div class="person-email"></div>
+    </div>
+    <div class="person-card">
+      <div class="person-avatar">📚</div>
+      <div class="person-name">HONG, YoonHa</div>
+      <div class="person-title">Master Student</div>
+      <div class="person-email"></div>
+    </div>
+    <div class="person-card">
+      <div class="person-avatar">📚</div>
+      <div class="person-name">KIM, MinJae</div>
+      <div class="person-title">Master Student</div>
+      <div class="person-email"></div>
+    </div>
+    <div class="person-card">
+      <div class="person-avatar">📚</div>
+      <div class="person-name">PARK, JinHyun</div>
+      <div class="person-title">Master Student</div>
       <div class="person-email"></div>
     </div>
   </div>
@@ -277,37 +267,26 @@ nav_order: 2
   <div class="people-grid">
     <div class="person-card">
       <div class="person-avatar">📚</div>
-      <div class="person-name">CHOI, ChangHwan</div>
+      <div class="person-name">JEONG, Seul-I</div>
       <div class="person-title">Master Student</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
       <div class="person-avatar">📚</div>
-      <div class="person-name">HONG, YoonHa</div>
+      <div class="person-name">Hwang, Yun-gwang</div>
       <div class="person-title">Master Student</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
       <div class="person-avatar">📚</div>
-      <div class="person-name">KIM, MinJae</div>
+      <div class="person-name">Seo, Youngwoong</div>
       <div class="person-title">Master Student</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
-    <div class="person-card">
+      <div class="person-card">
       <div class="person-avatar">📚</div>
-      <div class="person-name">PARK, JinHyun</div>
+      <div class="person-name">KIM, Yechan</div>
       <div class="person-title">Master Student</div>
-      <div class="person-interests">Nuclear Physics</div>
-      <div class="person-email"></div>
-    </div>
-    <div class="person-card">
-      <div class="person-avatar">📚</div>
-      <div class="person-name">JEONG, SeulI</div>
-      <div class="person-title">Master Student</div>
-      <div class="person-interests">Nuclear Physics</div>
       <div class="person-email"></div>
     </div>
   </div>

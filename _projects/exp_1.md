@@ -2,7 +2,7 @@
 layout: page
 title: b-jet GNN Tagging
 description: Development of GNN-based methods for b-jet tagging in heavy-ion environments.
-img: assets/img/1.jpg
+img: assets/img/carousel/carousel_03.png
 importance: 1
 category: High-Energy Nuclear Experiments
 related_publications: true

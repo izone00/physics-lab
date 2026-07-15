@@ -2,7 +2,7 @@
 layout: page
 title: Quarkonia Rapidity Dependence
 description: Multiplicity dependent J/psi and psi(2S) production at forward/backward rapidity.
-img: assets/img/12.jpg
+img: assets/img/carousel/carousel_01.png
 importance: 4
 category: High-Energy Nuclear Experiments
 related_publications: true

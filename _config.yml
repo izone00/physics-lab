@@ -4,23 +4,21 @@
 # -----------------------------------------------------------------------------
 
 title: Yonsei NPL # the website title (if blank, full name will be used instead)
-lab_name: Kim Minjae's Nuclear Physics Lab # Full name for the content header
-first_name: Minjae
+lab_name: Yonsei Nuclear Physics Laboratory # Full name for the content header
+first_name: Sanghoon
 middle_name: ""
-last_name: Kim
+last_name: Lim
+email: shlim@yonsei.ac.kr
 contact_note: >
-  If you are interested in joining the laboratory, please contact us by email at contact@yonsei.ac.kr.
-description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Official website of Kim Minjae's Nuclear Physics Laboratory at Yonsei University. We explore nuclear matter properties using particle detectors, data analysis, simulation, and modeling.
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: nuclear physics, pusan national university, lim sanghoon, RHIC, ALICE, RAON, EIC, quark-gluon plasma, heavy-ion collisions
+  Interested in joining the lab? Contact us at <a href="mailto:shlim@yonsei.ac.kr">shlim@yonsei.ac.kr</a>.
+description: >
+  Official website of the Yonsei Nuclear Physics Laboratory. We explore nuclear matter using particle detectors, data analysis, simulation, and modeling.
+keywords: nuclear physics, yonsei university, lim sanghoon, RHIC, ALICE, RAON, EIC, quark-gluon plasma, heavy-ion collisions
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://mjkim525.github.io/physics-lab/ # the base hostname & protocol for your site
-baseurl: /physics-lab # the subpath of your site, e.g. /blog/. Leave blank for root
+url: https://yonsei-npl.yonsei.ac.kr # the base hostname & protocol for your site
+baseurl:  # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
@@ -462,7 +460,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"
+      fonts: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
   highlightjs:
     integrity:
       css:

@@ -2,7 +2,7 @@
 layout: page
 title: Hadronic Resonances & K1(1270)
 description: Studying K1(1270) and resonant states in pp and AA collisions.
-img: assets/img/5.jpg
+img: assets/img/carousel/carousel_05.png
 importance: 5
 category: High-Energy Nuclear Experiments
 related_publications: true

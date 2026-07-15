@@ -2,9 +2,8 @@
 layout: default
 ---
 <style>
-  /* Global Academic Refinements */
+  /* Homepage layout */
   .lab-intro {
-    font-family: 'Inter', sans-serif;
     color: var(--global-text-color);
   }
   .intro-content,
@@ -32,6 +31,9 @@ layout: default
     align-items: center;
     gap: 15px; /* Reduced gap for unified brand look */
   }
+  .hero-titles {
+    min-width: 0;
+  }
   .hero-logo {
     height: 70px;
     width: auto;
@@ -41,9 +43,8 @@ layout: default
   }
   .hero-titles h1 {
     color: var(--global-theme-color);
-    font-family: 'Merriweather', serif;
     font-weight: 700;
-    font-size: 2.6rem;
+    font-size: clamp(2rem, 5vw, 2.6rem);
     margin: 0 0 0.5rem 0;
     line-height: 1.1;
   }
@@ -63,6 +64,35 @@ layout: default
   }
   .news-container table td {
     padding: 1.2rem 0 !important;
+  }
+  .home-section-title {
+    border-bottom: 2px solid var(--global-theme-color);
+    color: var(--global-theme-color);
+    display: inline-block;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+  }
+  .home-section-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media (max-width: 576px) {
+    .hero-section {
+      padding: 42px 1.25rem;
+    }
+    .hero-container {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .hero-logo {
+      height: 54px;
+    }
+    .hero-titles h1 {
+      font-size: 2rem;
+    }
   }
 
   /* Dark Mode Overrides */
@@ -92,8 +122,8 @@ layout: default
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
       <div class="section-block">
-        <h3 style="color: var(--global-theme-color); font-family: 'Merriweather', serif; font-size: 1.6rem; border-bottom: 2px solid var(--global-theme-color); padding-bottom: 0.5rem; margin-bottom: 2rem; display: inline-block;">
-          <a href="{{ '/news/' | relative_url }}" style="color: inherit; text-decoration: none;">Latest News</a>
+        <h3 class="home-section-title">
+          <a href="{{ '/news/' | relative_url }}">Latest News</a>
         </h3>
         <div class="news-container">
           {% include news.liquid limit=true %}
@@ -104,8 +134,8 @@ layout: default
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <div class="section-block">
-        <h3 style="color: var(--global-theme-color); font-family: 'Merriweather', serif; font-size: 1.6rem; border-bottom: 2px solid var(--global-theme-color); padding-bottom: 0.5rem; margin-bottom: 2rem; display: inline-block;">
-          <a href="{{ '/publications/' | relative_url }}" style="color: inherit; text-decoration: none;">Selected Publications</a>
+        <h3 class="home-section-title">
+          <a href="{{ '/publications/' | relative_url }}">Selected Publications</a>
         </h3>
         <div class="papers-container">
           {% include selected_papers.liquid %}

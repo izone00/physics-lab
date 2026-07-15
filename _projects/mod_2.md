@@ -2,7 +2,7 @@
 layout: page
 title: CNN Image-based Tagging
 description: Deep learning for jet identification using image-like representations.
-img: assets/img/9.jpg
+img: assets/img/carousel/carousel_06.png
 importance: 2
 category: Phenomenological Modeling
 related_publications: true

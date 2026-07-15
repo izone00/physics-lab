@@ -7,7 +7,7 @@ nav: false
 nav_order: 1
 
 selected_papers: true
-social: true
+social: false
 
 announcements:
   enabled: true
@@ -20,7 +20,7 @@ latest_posts:
 
 Welcome to the **Nuclear Physics Laboratory** at Yonsei University. Strong interaction is one of the four fundamental interactions, and it binds quarks inside a nucleon and nucleons inside a nucleus. We are exploring nuclear matters at various temperature and density to understand the properties emerging from the strong interaction. Research in the lab spans a wide range of activity on particle detectors, software, data analysis, simulation, and model.
 
-We are looking for new members! If you are interested, please <a href="mailto:contact@yonsei.ac.kr">contact us</a>.
+We are looking for new members. If you are interested, please [contact us](mailto:{{ site.email }}).
 
 ### <a href="{{ '/projects/' | relative_url }}" style="color: inherit; text-decoration: none;">Research Projects &rsaquo;</a>
 
@@ -33,7 +33,8 @@ We are looking for new members! If you are interested, please <a href="mailto:co
     margin-bottom: 2rem;
   }
   .research-card {
-    background-color: #f0f9ff;
+    background-color: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -58,6 +59,21 @@ We are looking for new members! If you are interested, please <a href="mailto:co
   }
   .research-card-content {
     padding: 2rem;
+  }
+  .research-card-icon,
+  .research-card-title {
+    color: var(--global-theme-color);
+  }
+  .research-card-title {
+    display: block;
+    font-size: 1.25rem;
+    margin-bottom: 1.2rem;
+  }
+  .research-card-description {
+    color: var(--global-text-color-light);
+    display: block;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   /* Responsive Swipe for Mobile */
@@ -91,46 +107,46 @@ We are looking for new members! If you are interested, please <a href="mailto:co
 <div class="research-grid">
   <!-- Theme 1 -->
   <a href="{{ '/projects/' | relative_url }}" class="research-card">
-    <img src="{{ '/assets/img/carousel/carousel_01.png' | relative_url }}" alt="RHIC Research">
+    <img src="{{ '/assets/img/carousel/carousel_03.png' | relative_url }}" alt="sPHENIX detector at RHIC">
     <div class="research-card-content">
-      <div style="color: #003876; margin-bottom: 0.6rem;">
+      <div class="research-card-icon" style="margin-bottom: 0.6rem;">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.52-11.9s-9.87-6.56-11.9-4.52c-2.04 2.03-.02 7.36 4.52 11.9s9.87 6.56 11.9 4.52z"/><path d="M15.8 15.8c2.04-2.03.02-7.36-4.52-11.9s-9.87-6.56-11.9-4.52c-2.04 2.03-.02 7.36 4.52 11.9s9.87 6.56 11.9 4.52z" transform="rotate(60 12 12)"/><path d="M15.8 15.8c2.04-2.03.02-7.36-4.52-11.9s-9.87-6.56-11.9-4.52c-2.04 2.03-.02 7.36 4.52 11.9s9.87 6.56 11.9 4.52z" transform="rotate(120 12 12)"/></svg>
       </div>
-      <strong style="color: #003876; font-size: 1.25rem; display: block; margin-bottom: 1.2rem; font-family: 'Merriweather', serif;">PHENIX & sPHENIX at RHIC</strong>
-      <span style="font-size: 1rem; color: #334155; display: block; line-height: 1.6;">Exploring quark-gluon plasma and nuclear matter properties in relativistic heavy-ion collisions at Brookhaven National Laboratory.</span>
+      <strong class="research-card-title">PHENIX & sPHENIX at RHIC</strong>
+      <span class="research-card-description">Exploring quark-gluon plasma and nuclear matter properties in relativistic heavy-ion collisions at Brookhaven National Laboratory.</span>
     </div>
   </a>
   <!-- Theme 2 -->
   <a href="{{ '/projects/' | relative_url }}" class="research-card">
-    <img src="{{ '/assets/img/carousel/carousel_02.png' | relative_url }}" alt="LHC Research">
+    <img src="{{ '/assets/img/carousel/carousel_05.png' | relative_url }}" alt="ALICE detector at the LHC">
     <div class="research-card-content">
-      <div style="color: #003876; margin-bottom: 0.6rem;">
+      <div class="research-card-icon" style="margin-bottom: 0.6rem;">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
       </div>
-      <strong style="color: #003876; font-size: 1.25rem; display: block; margin-bottom: 1.2rem; font-family: 'Merriweather', serif;">ALICE at LHC</strong>
-      <span style="font-size: 1rem; color: #334155; display: block; line-height: 1.6;">Studying the properties of strongly interacting matter at the highest-ever energy densities using the ALICE detector at CERN.</span>
+      <strong class="research-card-title">ALICE at LHC</strong>
+      <span class="research-card-description">Studying the properties of strongly interacting matter at the highest-ever energy densities using the ALICE detector at CERN.</span>
     </div>
   </a>
   <!-- Theme 3 -->
   <a href="{{ '/projects/' | relative_url }}" class="research-card">
-    <img src="{{ '/assets/img/carousel/carousel_12.png' | relative_url }}" alt="RAON Research">
+    <img src="{{ '/assets/img/carousel/carousel_10.png' | relative_url }}" alt="LAMPS detector at RAON">
     <div class="research-card-content">
-      <div style="color: #003876; margin-bottom: 0.6rem;">
+      <div class="research-card-icon" style="margin-bottom: 0.6rem;">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
       </div>
-      <strong style="color: #003876; font-size: 1.25rem; display: block; margin-bottom: 1.2rem; font-family: 'Merriweather', serif;">LAMPS at RAON</strong>
-      <span style="font-size: 1rem; color: #334155; display: block; line-height: 1.6;">Investigating nuclear matter at extreme neutron-rich conditions using the rare isotope accelerator complex in Korea.</span>
+      <strong class="research-card-title">LAMPS at RAON</strong>
+      <span class="research-card-description">Investigating nuclear matter at extreme neutron-rich conditions using the rare isotope accelerator complex in Korea.</span>
     </div>
   </a>
   <!-- Theme 4 -->
   <a href="{{ '/projects/' | relative_url }}" class="research-card">
-    <img src="{{ '/assets/img/carousel/carousel_06.png' | relative_url }}" alt="EIC Research">
+    <img src="{{ '/assets/img/carousel/carousel_12.png' | relative_url }}" alt="ePIC detector at the EIC">
     <div class="research-card-content">
-      <div style="color: #003876; margin-bottom: 0.6rem;">
+      <div class="research-card-icon" style="margin-bottom: 0.6rem;">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M2 12h2"/><path d="m4.93 19.07 1.41-1.41"/><path d="M12 22v-2"/><path d="m19.07 19.07-1.41-1.41"/><path d="M22 12h-2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.93 15.93 12 12l3.93-3.93"/></svg>
       </div>
-      <strong style="color: #003876; font-size: 1.25rem; display: block; margin-bottom: 1.2rem; font-family: 'Merriweather', serif;">ePIC at EIC</strong>
-      <span style="font-size: 1rem; color: #334155; display: block; line-height: 1.6;">Probing the 3D structure of protons and nuclei through electron-ion collisions at the future Electron Ion Collider at BNL.</span>
+      <strong class="research-card-title">ePIC at EIC</strong>
+      <span class="research-card-description">Probing the 3D structure of protons and nuclei through electron-ion collisions at the future Electron Ion Collider at BNL.</span>
     </div>
   </a>
 </div>

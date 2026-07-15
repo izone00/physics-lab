@@ -2,7 +2,7 @@
 layout: page
 title: Vector Meson Production
 description: Studying low-mass vector meson production at forward rapidity.
-img: assets/img/3.jpg
+img: assets/img/carousel/carousel_02.png
 importance: 2
 category: High-Energy Nuclear Experiments
 related_publications: true

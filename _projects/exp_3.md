@@ -2,7 +2,7 @@
 layout: page
 title: Charmed Baryon Multiplicity
 description: Multiplicity dependence of Xi_c production in pp collisions.
-img: assets/img/7.jpg
+img: assets/img/carousel/carousel_11.png
 importance: 3
 category: High-Energy Nuclear Experiments
 related_publications: true
