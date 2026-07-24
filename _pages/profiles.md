@@ -244,19 +244,19 @@ nav_order: 2
     <div class="person-card">
       <div class="person-avatar">📚</div>
       <div class="person-name">HONG, YoonHa</div>
-      <div class="person-title">Master Student</div>
+      <div class="person-title">PhD Student</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
       <div class="person-avatar">📚</div>
       <div class="person-name">KIM, MinJae</div>
-      <div class="person-title">Master Student</div>
+      <div class="person-title">PhD Student</div>
       <div class="person-email"></div>
     </div>
     <div class="person-card">
       <div class="person-avatar">📚</div>
       <div class="person-name">PARK, JinHyun</div>
-      <div class="person-title">Master Student</div>
+      <div class="person-title">PhD Student</div>
       <div class="person-email"></div>
     </div>
   </div>
